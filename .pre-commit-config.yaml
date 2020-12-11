@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+  - repo: https://github.com/pycqa/isort
+    rev: 5.5.2
+    hooks:
+      - id: isort
+        name: Imports Sort
+        description: This hook sorts the import section to cluster similar imports
+        files: \.py$
+        require_serial: true
+        types: [ python ]
+        language: python
+        entry: isort
+        args: [ '--filter-files', '--length-sort', '--combine-as', '--force-sort-within-sections']
+  - repo: local
+    hooks:
+      - id: jupyter-nb-clear-output
+        name: Jupyter Notebook Clear Output
+        description: This hook removes the outputs of Jupyter Notebook's cells
+        files: \.ipynb$
+        stages: [ commit ]
+        language: system
+        entry: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace

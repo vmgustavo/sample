@@ -1,0 +1,21 @@
+# Pip Development
+*.egg-info
+
+# Auxiliary Files
+aux-*
+
+# Logging Files
+*.log
+
+# Python
+__pycache__/
+
+# Sphinx documentation
+docs/build/
+
+# Jupyter Notebooks
+**/.ipynb_checkpoints
+
+# IDE Directory
+.idea/
+.vscode/
